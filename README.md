@@ -14,3 +14,12 @@
 # other
 1. online view data: https://sqliteviewer.app/
 1. sqlite3 convert to csv: https://www.rebasedata.com/convert-sqlite-to-csv-online
+1. sqlite3 op:
+
+```shell
+sqlite3 data.db
+.schema parts;
+select * from parts;
+select * from parts where fit is not null;
+
+```
