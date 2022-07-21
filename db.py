@@ -1,9 +1,25 @@
 import sqlite3
 from logger import logger
+import os
+import time
 
 class DataBase():
     def __init__(self) -> None:
-        self.con = sqlite3.connect('data.db')
+        self.db_file='data.db'
+        self.con = sqlite3.connect(self.db_file)
+    
+    def test(self):
+        try:
+            self.execute('select * from parts limit ?;',(1,))
+        except Exception as e:
+            back_db_name=f'data-backup-{int(time.time())}.db'
+            logger.error(f'create new db {self.db_file}, and back old {back_db_name}:{e}')
+            try:
+                os.rename(self.db_file,back_db_name)
+            except:
+                pass
+            self.con = sqlite3.connect(self.db_file)
+            self.create()
     
     def create(self):
         cur = self.con.cursor()
@@ -136,7 +152,7 @@ class DataBase():
 
 
 if __name__ == '__main__':
-    DataBase().create()
+    DataBase().test()
     # print(DataBase().getPartUnkown('B07VHMX2NT',2003))
     # DataBase().updateFit(157)
     # print(DataBase().fetch('select * from parts where id=?',(25,)))

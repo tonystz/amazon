@@ -9,6 +9,7 @@ class Crawler():
         self.browser = request.AmazonVehicleParts(product_url)
         self.browser.requestTokenFromHome().requestFirstSelect()
         self.db = DataBase()
+        self.db.test()
 
     def updateFit(self,i):
         self.browser.logger.info(f'check fit: parts={json.dumps(i)}')
