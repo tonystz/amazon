@@ -21,5 +21,7 @@ sqlite3 data.db
 .schema parts;
 select * from parts;
 select * from parts where fit is not null;
+select asin, year,fit,count(*) as c from parts group by asin,year,fit order by c desc;
+select asin, year,fit,count(*) as c from parts group by asin,year,fit order by year desc;
 
 ```
