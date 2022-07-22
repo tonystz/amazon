@@ -85,7 +85,7 @@ class Crawler():
 if __name__ == '__main__':
     
     crawler = Crawler(inputs.product_url)
-    for year in inputs.year:
+    for year in range(min(inputs.year),max(inputs.year)+1):
         for makeId in crawler.getMakeId(year):
             for modelId in crawler.getModelId(year,makeId=makeId):
                 for submodelId in crawler.getSubmodelId(year,makeId=makeId,modelId=modelId):
