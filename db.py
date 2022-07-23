@@ -36,7 +36,7 @@ class DataBase():
                 "fit" text,
                 "engine" integer,
                 "enginetxt" TEXT,
-                "bodyStyle" integer
+                "bodyStyle" integer,
                 "bodyStyletxt" TEXT,
                 "note" TEXT,
                 "url" text
