@@ -6,10 +6,15 @@ loop = True
 db = DataBase()
 while loop:
     loop = False
+    cache={}
     for parts in db.getPartUnkown():
+        url = parts['url']
         loop = True
         try:
-            crawler = Crawler(parts['url'])
+            crawler = cache.get(url,None)
+            if crawler is None:
+                crawler = Crawler(url)
+                cache[url] = crawler
             crawler.updateFit(parts)
         except Exception as e:
             crawler.browser.logger.error(f'fail to {e}. {traceback.format_exc()}')

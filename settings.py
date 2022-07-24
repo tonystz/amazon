@@ -36,23 +36,27 @@ headers={
 headerstr='''
 accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 accept-encoding: gzip, deflate, br
-accept-language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7,zh-TW;q=0.6,id;q=0.5,gl;q=0.4
+accept-language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7
 cache-control: max-age=0
-cookie: aws-ubid-main=468-0066304-8374066; aws-session-id=839-6066719-5968543; aws-analysis-id=839-6066719-5968543; session-id=139-7170060-6722130; remember-account=false; ubid-main=134-7999112-0304468; aws-session-id-time=1646721876l; awsc-color-theme=light; aws-target-data=%7B%22support%22%3A%221%22%7D; aws-target-visitor-id=1647673369382-469574.32_0; noflush_locale=en; awsc-uh-opt-in=optedIn; aws-userInfo=%7B%22arn%22%3A%22arn%3Aaws%3Asts%3A%3A711171116841%3Aassumed-role%2FADFS-READONLY%2Ftony_su%22%2C%22alias%22%3A%22ddcloud-aws-devops%22%2C%22username%22%3A%22assumed-role%252FADFS-READONLY%252Ftony_su%22%2C%22keybase%22%3A%22SSquF6meIF7h6r05KDlu5A1gmjHilYirKHB%2BqzOH%2FFY%5Cu003d%22%2C%22issuer%22%3A%22%22%2C%22signinType%22%3A%22PUBLIC%22%7D; aws-userInfo-signed=eyJ0eXAiOiJKV1MiLCJrZXlSZWdpb24iOiJ1cy1lYXN0LTEiLCJhbGciOiJFUzM4NCIsImtpZCI6ImFhNDFkZjRjLTMxMzgtNGVkOC04YmU5LWYyMzUzYzNkOTEzYiJ9.eyJzdWIiOiJkZGNsb3VkLWF3cy1kZXZvcHMiLCJzaWduaW5UeXBlIjoiUFVCTElDIiwiaXNzIjoiIiwia2V5YmFzZSI6IlNTcXVGNm1lSUY3aDZyMDVLRGx1NUExZ21qSGlsWWlyS0hCK3F6T0hcL0ZZPSIsImFybiI6ImFybjphd3M6c3RzOjo3MTExNzExMTY4NDE6YXNzdW1lZC1yb2xlXC9BREZTLVJFQURPTkxZXC90b255X3N1IiwidXNlcm5hbWUiOiJhc3N1bWVkLXJvbGUlMkZBREZTLVJFQURPTkxZJTJGdG9ueV9zdSJ9.OGj1dY4pNcoknz35Xxt1pulpiPTHuS3v55D_NDReUuO4N_EmIY8Gix9KeSgXCZyAWDZgdR8LiBVbY9dZHNBStfBcItO4toOxpoRiM7AzJl5u2kl6YVeJ6UM41G34-n79; noflush_awsccs_sid=10a519ef4d4c866bf5c84be3b13ca64934d09feb46e6e81d63488a9308200bde; session-id-time=2082787201l; i18n-prefs=USD; UM_distinctid=17fbba7c756471-05acb51122dc1c-3a67410c-e1000-17fbba7c7578c9; session-token=ej6pkSb5zDUNdR+vZHx9yfQ2u8cPftpeaWFRr5yf0Dx244NBuUo66TGMVbrPp0Ufogm9v1Wi9bRNxg21q1sl5lHnTZoURyixiXUczV2E1M2PmrC1iJh6ZDEqFRnkrw/nr9uh9BzFBZzEChx6p/c0xXlWdw3eb1TyrJcXbBLPpDzVcwwaxUW3dFr71GtQZKhf; csm-hit=tb:s-J94N57F0QGPRR06VPTX2|1648208380119&t:1648208382974&adb:adblk_yes; CNZZDATA1256793290=317762228-1648119644-%7C1648201410
+cookie: session-id-time=2082787201l; session-id=133-9424710-3846764; ubid-main=131-4430385-2075638; i18n-prefs=USD; sp-cdn="L5Z9:CN"; lc-main=en_US; aws-target-data=%7B%22support%22%3A%221%22%7D; aws-target-visitor-id=1649340053142-768021.32_0; regStatus=pre-register; AMCV_7742037254C95E840A4C98A6%40AdobeOrg=1585540135%7CMCIDTS%7C19183%7CMCMID%7C26726776119005477131231249625536253419%7CMCAAMLH-1657945640%7C11%7CMCAAMB-1657945640%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1657348040s%7CNONE%7CMCAID%7CNONE%7CvVersion%7C4.4.0; session-token="taGytVFXV1z1YDaLu/qBe3uKCtqzOeJSDs2GrGDaE6x5BobzNYEhOV8xlsPa1Ac2LOIl4PXinoIig6ZSjzLQIFzF150DD0fopfjm20j499XpzIAEus2p7oXLWRwIanXqcYC455pVpNniKZSz307z/AD3bsT2oCpXDhCKiA1bOUGtEDcUSuk/IbeI1Kzt6DaZtNpDUrH4O50mMONe6FY3rw=="; csm-hit=tb:138QWRPQ985MYVV8KWBD+s-4KB4137N4R0A2479MVYZ|1658643341293&t:1658643341294&adb:adblk_no
 device-memory: 8
-downlink: 3.35
-dpr: 1.5
-ect: 4g
-rtt: 100
-sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"
+downlink: 1.35
+dpr: 1
+ect: 3g
+rtt: 250
+sec-ch-device-memory: 8
+sec-ch-dpr: 1
+sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "macOS"
+sec-ch-viewport-width: 1280
 sec-fetch-dest: document
 sec-fetch-mode: navigate
-sec-fetch-site: same-origin
+sec-fetch-site: none
 sec-fetch-user: ?1
 upgrade-insecure-requests: 1
-user-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
-viewport-width: 853
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+viewport-width: 1280
 '''
 
 for i in headerstr.splitlines():
