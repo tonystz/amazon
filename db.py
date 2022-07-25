@@ -2,6 +2,8 @@ import sqlite3
 from logger import logger
 import os
 import time
+import csv
+import codecs
 
 class DataBase():
     def __init__(self) -> None:
@@ -150,9 +152,31 @@ class DataBase():
         sql='''INSERT INTO parts(asin,year,makeId,makeIdtxt,url)VALUES(?,?,?,?,?)'''
         self.executeBatch(sql,[(asin,year,makeId[0],makeId[1],url) for makeId in ids])
 
+    def dump2csv(self):
+        cols = []
+        cur = self.con.cursor()
+        try:
+            cols = cur.execute("PRAGMA table_info('parts')").fetchall()
+        except:
+            cols = []
+        if len(cols) > 0:
+            f = codecs.open('db.csv', 'w', encoding='utf-8')
+            writer = csv.writer(f, dialect=csv.excel, quoting=csv.QUOTE_ALL)
+            field_name_row = []
+            for col in cols:
+                col_name = col[1]
+                field_name_row.append(col_name)
+            writer.writerow(field_name_row)  # write the field labels in first row
+            # now get the data
+            cur.execute("SELECT * FROM parts;")
+            rows = cur.fetchall()
+            for row in rows:
+               writer.writerow(row)  # write data row
+            f.closed
+            logger.info(f"Done! dump to db.csv ")
 
 if __name__ == '__main__':
-    DataBase().test()
+    DataBase().dump2csv()
     # print(DataBase().getPartUnkown('B07VHMX2NT',2003))
     # DataBase().updateFit(157)
     # print(DataBase().fetch('select * from parts where id=?',(25,)))
