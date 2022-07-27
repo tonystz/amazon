@@ -4,7 +4,7 @@
 # Install dependency
 1. run `CTRL + R` to open **cmd.exe**
 1. run `pip install -r requests.txt` in **cmd.exe**
-1. run `pyhton db.py` to create sqlite3 database in **cmd.exe**
+1. run `pyhton db.py` to dump data to csv format in **cmd.exe**
 # start to crawler data
 1. modify `inputs.py` to edit `Amazon` and year `infor`
 1. run `pyhton crawler.py` to crawler car parts in **cmd.exe**
