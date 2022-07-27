@@ -105,7 +105,7 @@ class DataBase():
         deleteParameters=(rs['rowid'],))
 
     def getMakeId(self,asin,year):
-        return self.fetch('select makeId from parts where asin=? and year=?',(asin,year,))
+        return self.fetch('select makeId from parts where asin=? and year=? and fit not in ("not","yes")',(asin,year,))
 
     def getModelId(self,asin,year,makeId):
         return self.fetch('select modelId from parts where asin=? and year=? and makeId=?',(asin,year,makeId))
