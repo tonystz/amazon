@@ -118,6 +118,9 @@ class AmazonVehicleParts():
         payload["selections"] = selections if selections else attributes.Selections(year=2018,makeId=45,modelId=25218).get()
         self.logger.info(f'findUrl: sendselection: {payload["selections"]}')
         response =  self.__postRequest('findUrl',findUrl,payload=payload)
+        if response.status_code == 400 and len(response.text) == 0:
+            self.logger.error('fit error: delete and try  again later')
+            return 'err','error,400'
         self.checkHttpCode(response.status_code)
         return self.checkPartfinderView(response.text)
 

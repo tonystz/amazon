@@ -59,19 +59,20 @@ class DataBase():
     
     def executeBatch(self,sql,batchParametersh, deleteSql=None,deleteParameters=None):
         logger.debug(f'sql={sql},p={batchParametersh}')
-        cur = self.con.cursor()
-        cur.execute("begin")
         try:
+            cur = self.con.cursor()
+            cur.execute("begin")
             if deleteSql:
                 logger.debug(f'sql delete={deleteSql} {deleteParameters}')
                 cur.execute(deleteSql,deleteParameters)
             for parameters in batchParametersh:
                 cur.execute(sql,parameters)
-                cur.execute("commit")
+            cur.execute("commit")
         except Exception as e:
             logger.error(f"sql failed! {e}")
             cur.execute("rollback")
-        cur.close()
+        finally:
+            cur.close()
     
     def fetch(self,sql,parameters=None):
         logger.debug(f'sql={sql},p={parameters}')
