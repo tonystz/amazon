@@ -23,6 +23,7 @@ select * from parts;
 select * from parts where fit is not null;
 select asin, year,fit,count(*) as c from parts group by asin,year,fit order by c desc;
 select asin, year,fit,count(*) as c from parts group by asin,year,fit order by year desc;
+select asin, year,fit,count(*) as c from parts where asin='B098DWSXT2' group by asin,year,fit order by year desc;
 .exit
 
 ```
