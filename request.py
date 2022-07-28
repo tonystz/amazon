@@ -27,10 +27,10 @@ class AmazonVehicleParts():
             self.http_code[status_code] = 0
         self.http_code[status_code] +=1
         for status_code in [403]:
-            assert self.http_code.get(403,0) < 3
+            assert self.http_code.get(status_code,0) < 4
 
     def sleep(self):
-        time.sleep(random.randint(1,5))
+        time.sleep(random.randint(0,5))
     
     def __getAutomotiveId(self):
         _idrandom=str(int(round(time.time() * 1000)))[-3:] + str(random.random())[-3:]
