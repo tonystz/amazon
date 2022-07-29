@@ -5,7 +5,7 @@ get home from:
 1: requests
 2: playwright browser
 '''
-HOME_FROM=1
+HOME_FROM=2
 
 '''
 #navigator.connection

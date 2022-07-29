@@ -44,24 +44,28 @@ class AmazonVehicleParts():
         self.logger.debug(f'id:{idrandom}')
         return idrandom
 
-    def getHomePage(self):
+    def get_token(self):
         if settings.HOME_FROM == 2:
             import home
             # page = home.asyncio.get_event_loop().run_until_complete(home.main())
-            return home.get(self.product_url)
+            self.logger.info('via browser')
+            return BeautifulSoup(
+            re.search(r"<!--CardsClient-->(.*)", home.get(self.product_url)).group(1),
+            "lxml",
+            ).find_all("div")
         else:
             rsp = self.session.get(self.product_url, headers=settings.headers)
             self.save_body('homepage',rsp)
-            return rsp.text
+            self.logger.info('via http request')
+            return BeautifulSoup(
+            re.search(r"<!--CardsClient-->(.*)<input", rsp.text).group(1),
+            "lxml",
+            ).find_all("div")
         
     def requestTokenFromHome(self):
-        page= self.getHomePage()
+        initial_soup= self.get_token()
         # page = open('log/home.html').read()        
-        initial_soup = BeautifulSoup(
-            re.search(r"<!--CardsClient-->(.*)<input", page).group(1),
-            "lxml",
-        ).find_all("div")
-        # print(initial_soup)
+        
         for div in initial_soup:
             id = div.get('id')
             self.dapparams = div.get('data-acp-params')
