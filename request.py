@@ -44,21 +44,34 @@ class AmazonVehicleParts():
         self.logger.debug(f'id:{idrandom}')
         return idrandom
 
+    def getHomePage(self):
+        if settings.HOME_FROM == 2:
+            import home
+            # page = home.asyncio.get_event_loop().run_until_complete(home.main())
+            return home.get(self.product_url)
+        else:
+            rsp = self.session.get(self.product_url, headers=settings.headers)
+            self.save_body('homepage',rsp)
+            return rsp.text
+        
     def requestTokenFromHome(self):
-        rsp = self.session.get(self.product_url, headers=settings.headers)
-        self.save_body('homepage',rsp)
+        page= self.getHomePage()
+        # page = open('log/home.html').read()        
         initial_soup = BeautifulSoup(
-            re.search(r"<!--CardsClient-->(.*)<input", rsp.text).group(1),
+            re.search(r"<!--CardsClient-->(.*)<input", page).group(1),
             "lxml",
         ).find_all("div")
-
+        # print(initial_soup)
         for div in initial_soup:
             id = div.get('id')
             self.dapparams = div.get('data-acp-params')
             self.dappath= div.get('data-acp-path')
             self.logger.info(f'find info from homepage: data-acp-params={self.dapparams} data-acp-path={self.dappath}')
             break
-        
+        if self.dapparams and self.dappath:
+            self.logger.info('find token sucessfully')
+        else:
+            self.logger.error('fail to find token')
         return self
     
     def __postRequest(self,step,url,payload):
@@ -151,4 +164,6 @@ class AmazonVehicleParts():
         self.logger.info(f"fit info: {fit}. note={note} {','.join(list(set(d))).encode('utf-8')}")
         return fit,note
 
+if __name__ == '__main__':
+    AmazonVehicleParts('https://www.amazon.com/SEALIGHT-360-degree-Illumination-Brightness-Installation/dp/B098DWSXT2').requestTokenFromHome()
 
