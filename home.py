@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 '''
-pip install pytest-playwright
+pip install playwright
+#if use browser
 playwright install
 '''
 def get(url):
