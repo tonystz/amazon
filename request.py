@@ -10,6 +10,12 @@ import settings
 import attributes
 import html
 
+# try:
+#     import http.client as http_client
+# except ImportError:
+#     # Python 2
+#     import httplib as http_client
+# http_client.HTTPConnection.debuglevel = 1
 class AmazonVehicleParts():
     def __init__(self, product_url) -> None:
         self.product_url = product_url
@@ -30,7 +36,7 @@ class AmazonVehicleParts():
             assert self.http_code.get(status_code,0) < 4
 
     def sleep(self):
-        time.sleep(random.randint(0,5))
+        time.sleep(random.randint(1,5))
     
     def __getAutomotiveId(self):
         _idrandom=str(int(round(time.time() * 1000)))[-3:] + str(random.random())[-3:]
