@@ -2,13 +2,13 @@ import logging
 import logging.handlers
 import urllib3
 import os
+import settings
 
 urllib3.disable_warnings()
 logger = logging.getLogger()
 # from http.client import HTTPConnection
 # HTTPConnection.debuglevel = 1
 
-SAVE_BODY = True
 def set_debug():
     formatter_str = '%(asctime)s %(levelname)-8s[%(lineno)d:%(filename)s:%(funcName)s()] %(message)s'
     formatter = logging.Formatter(formatter_str)
@@ -35,7 +35,7 @@ def set_debug():
 set_debug()
 
 def save_body(name,rsp):
-    if SAVE_BODY:
+    if settings.SAVE_BODY:
         rspf=f'log/rsp{name}.html'
         logger.info(f'save {rsp} to file: {rspf}')
         with open(rspf,'w',encoding='utf-8') as f:

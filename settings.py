@@ -76,3 +76,6 @@ for i in headerstr.splitlines():
         headers[d[0]]=d[1].strip()
 
 # headers["user-agent"] = UserAgent(path=r'ua.json').random
+
+# save response body
+SAVE_BODY=False
