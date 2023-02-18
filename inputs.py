@@ -16,3 +16,6 @@ year=[2001,2022]
 # product_url = 'https://www.amazon.com/dp/B081LPFY68'
 product_url='https://www.amazon.com/EPAuto-CF10374-Replacement-Pontiac-Activated/dp/B01LY5YMJJ'
 product_url='https://www.amazon.com/PHILTOP-Filter-Replacement-CF10374-Activated/dp/B08MT1C4CS'
+
+product_url='https://www.amazon.com/CF11819-Fresh-Breeze-Filter-Hammer/dp/B00UM9UCE8'
+product_url='https://www.amazon.com/EPAuto-CF11819-Replacement-Chevrolet-Activated/dp/B01AX9WJKQ'
