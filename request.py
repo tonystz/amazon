@@ -36,7 +36,7 @@ class AmazonVehicleParts():
             assert self.http_code.get(status_code,0) < 4
 
     def sleep(self):
-        time.sleep(random.randint(0,3))
+        time.sleep(random.randint(0,1))
     
     def __getAutomotiveId(self):
         _idrandom=str(int(round(time.time() * 1000)))[-3:] + str(random.random())[-3:]
