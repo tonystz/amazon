@@ -81,7 +81,7 @@ class AmazonVehicleParts():
     def __postRequest(self,step,url,payload):
         self.sleep()
         for i in range(3):
-            response = self.session.post(url, json=payload, headers=settings.headers)
+            response = self.session.post(url, json=payload, headers=settings.headers,timeout=60)
             if response.status_code == 200:
                 break
             self.sleep()
