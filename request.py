@@ -35,7 +35,10 @@ class AmazonVehicleParts():
         for status_code in [403]:
             assert self.http_code.get(status_code,0) < 4
 
-    def sleep(self):
+    def sleep(self,timeout=None):
+        if timeout:
+            time.sleep(timeout)
+            return
         time.sleep(random.randint(0,1))
     
     def __getAutomotiveId(self):
@@ -54,7 +57,7 @@ class AmazonVehicleParts():
             "lxml",
             ).find_all("div")
         else:
-            rsp = self.session.get(self.product_url, headers=settings.headers)
+            rsp = self.session.get(self.product_url, headers=settings.headers,timeout=(60,60))
             self.save_body('homepage',rsp)
             self.logger.info('via http request')
             return BeautifulSoup(

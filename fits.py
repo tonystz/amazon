@@ -19,7 +19,8 @@ while loop:
         except Exception as e:
             cache[url]=None
             crawler.browser.logger.error(f'fail to {e}. {traceback.format_exc()}')
-            crawler.browser.sleep()
+            crawler.browser.sleep(5)
+            loop = True
 
 # print(crawler.getMakeId(year=year))
 # print(crawler.getModelId(year=year,makeId=45))
