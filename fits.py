@@ -1,6 +1,8 @@
 from crawler import Crawler
 from db import DataBase
 import traceback
+import time
+import logger
 
 loop = True
 db = DataBase()
@@ -18,8 +20,8 @@ while loop:
             crawler.updateFit(parts)
         except Exception as e:
             cache[url]=None
-            crawler.browser.logger.error(f'fail to {e}. {traceback.format_exc()}')
-            crawler.browser.sleep(5)
+            logger.logger.error(f'fail to {e}. {traceback.format_exc()}')
+            time.sleep(5)
             loop = True
 
 # print(crawler.getMakeId(year=year))

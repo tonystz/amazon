@@ -35,3 +35,11 @@ product_url='https://www.amazon.com/CA9997-Extra-Guard-Rectangular-Filter/dp/B00
 #2003~2023
 #product_url='https://www.amazon.com/CA10190-Extra-Guard-Panel-Filter/dp/B001DRI5LA'
 # product_url='https://www.amazon.com/EPAuto-2009-2016-2009-2014-2006-2016-2008-2014/dp/B017OI9N4Y'
+
+#2005-2023
+product_url='https://www.amazon.com/EPAuto-CF11671-Replacement-Filter-Activated/dp/B083X83J5V'
+product_url='https://www.amazon.com/CF11671-Fresh-Breeze-Filter-Hammer/dp/B00GYTEDN6'
+#2010-2023
+product_url='https://www.amazon.com/CF11809-Fresh-Breeze-Filter-Hammer/dp/B016XE8P3A'
+product_url='https://www.amazon.com/EPAuto-Replacement-Cadillac-Chevrolet-Activated/dp/B07H45FF82'
+
