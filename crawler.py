@@ -22,6 +22,9 @@ class Crawler():
     def getYear(self):
         return self.browser.requestAttribute(attributes.getSelections())
     
+    def getMakeIdMaxYear(self):
+        return self.db.getMakeIdMaxYear(self.browser.asin)[0].get('maxyear')
+        
     def getMakeId(self,year='2003'):
         self.browser.logger.info(f'get makeId via year=: {year}')
         ids = [ i['makeId'] for i in self.db.getMakeId(self.browser.asin,year=year) if i['makeId']]
@@ -85,7 +88,11 @@ class Crawler():
 if __name__ == '__main__':
     
     crawler = Crawler(inputs.product_url)
-    for year in range(min(inputs.year),max(inputs.year)+1):
+    min_year=min(inputs.year)
+    max_year=crawler.getMakeIdMaxYear()
+    if max_year is not None:
+        min_year=max_year
+    for year in range(min_year,max(inputs.year)+1):
         for makeId in crawler.getMakeId(year):
             for modelId in crawler.getModelId(year,makeId=makeId):
                 for submodelId in crawler.getSubmodelId(year,makeId=makeId,modelId=modelId):

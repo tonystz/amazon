@@ -104,7 +104,10 @@ class DataBase():
         [sqlv+list(ids) for ids in ids ],
         deleteSql='delete from parts where rowid=?',
         deleteParameters=(rs['rowid'],))
-
+    
+    def getMakeIdMaxYear(self,asin):
+        return self.fetch('select max(year) as maxyear from parts where asin=?',(asin,))
+    
     def getMakeId(self,asin,year):
         return self.fetch('select makeId from parts where asin=? and year=?',(asin,year,))
 

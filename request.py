@@ -35,8 +35,8 @@ class AmazonVehicleParts():
         for status_code in [403]:
             assert self.http_code.get(status_code,0) < 4
 
-    def sleep(self):
-        time.sleep(random.randint(0,1))
+    def sleep(self,max=1):
+        time.sleep(random.randint(0,max))
     
     def __getAutomotiveId(self):
         _idrandom=str(int(round(time.time() * 1000)))[-3:] + str(random.random())[-3:]
@@ -63,7 +63,13 @@ class AmazonVehicleParts():
             ).find_all("div")
         
     def requestTokenFromHome(self):
-        initial_soup= self.get_token()
+        initial_soup=None
+        for i in range(20):
+            try:
+                initial_soup= self.get_token()
+            except Exception as e:
+                self.logger.error(f'fail to get token: {e}')
+                self.sleep(i)
         # page = open('log/home.html').read()        
         
         for div in initial_soup:
