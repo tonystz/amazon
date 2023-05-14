@@ -67,6 +67,7 @@ class AmazonVehicleParts():
         for i in range(20):
             try:
                 initial_soup= self.get_token()
+                break
             except Exception as e:
                 self.logger.error(f'fail to get token: {e}')
                 self.sleep(i)
