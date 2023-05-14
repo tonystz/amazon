@@ -25,6 +25,7 @@ select asin, year,fit,count(*) as c from parts group by asin,year,fit order by c
 select asin, year,fit,count(*) as c from parts group by asin,year,fit order by year desc;
 select asin, year,fit,count(*) as c from parts group by asin,year,fit order by asin,year desc;
 select asin, fit,count(*) from parts  group  by asin,fit order by asin;
+select asin, year,fit,count(*) as c from parts where fit is null group by asin,year,fit order by asin,year desc;
 .exit
 
 ```
