@@ -88,10 +88,7 @@ class Crawler():
 if __name__ == '__main__':
     
     crawler = Crawler(inputs.product_url)
-    min_year=min(inputs.year)
-    max_year=crawler.getMakeIdMaxYear()
-    if max_year is not None:
-        min_year=max_year
+    min_year = crawler.getMakeIdMaxYear() if crawler.getMakeIdMaxYear() else min(inputs.year)
     for year in range(min_year,max(inputs.year)+1):
         for makeId in crawler.getMakeId(year):
             for modelId in crawler.getModelId(year,makeId=makeId):

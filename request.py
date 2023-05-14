@@ -70,6 +70,7 @@ class AmazonVehicleParts():
             except Exception as e:
                 self.logger.error(f'fail to get token: {e}')
                 self.sleep(i)
+        assert initial_soup
         # page = open('log/home.html').read()        
         
         for div in initial_soup:
