@@ -75,4 +75,4 @@ for i in headerstr.splitlines():
 # headers["user-agent"] = UserAgent(path=r'ua.json').random
 
 # save response body
-SAVE_BODY=False
+VERBOSE=False

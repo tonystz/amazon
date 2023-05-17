@@ -12,7 +12,8 @@ logger = logging.getLogger()
 def set_debug():
     formatter_str = '%(asctime)s %(levelname)-8s[%(lineno)d:%(filename)s:%(funcName)s()] %(message)s'
     formatter = logging.Formatter(formatter_str)
-    logger.setLevel(logging.DEBUG)
+    log_level=  logging.DEBUG if settings.VERBOSE else logging.INFO
+    logger.setLevel(log_level)
     
     try:
         os.mkdir('log')
@@ -21,7 +22,7 @@ def set_debug():
 
     fh = logging.handlers.RotatingFileHandler(f'log/cr.log',maxBytes=10*1024*1024,backupCount=10)
     
-    fh.setLevel(logging.DEBUG)
+    fh.setLevel(log_level)
     fh.setFormatter(formatter)
     logger.addHandler(fh)
 
@@ -35,7 +36,7 @@ def set_debug():
 set_debug()
 
 def save_body(name,rsp):
-    if settings.SAVE_BODY:
+    if settings.VERBOSE:
         rspf=f'log/rsp{name}.html'
         logger.info(f'save {rsp} to file: {rspf}')
         with open(rspf,'w',encoding='utf-8') as f:
