@@ -147,7 +147,8 @@ class DataBase():
         self.execute(sql,(fit,note,rowid))
     
     def getPartUnkown(self):
-        return self.fetch('''select rowid,* from parts where fit is NULL or fit == "unknown" limit 100''')
+        #return self.fetch('''select rowid,* from parts where fit is NULL order by asin limit 600''')
+        return self.fetch('''select rowid,* from parts where fit is NULL or fit == "unknown" order by asin limit 600''')
 
     def close(self):
         self.con.close()
