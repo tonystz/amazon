@@ -2,10 +2,10 @@
 # from 2016 to 2022
 year=[1980,2023]
 product_url='https://www.amazon.com/EPAuto-CA4309-Replacement-Infiniti-Selected/dp/B07F3CFWC5'
-product_url='https://www.amazon.com/CA4309-Extra-Flexible-Rectangular-Filter/dp/B0009H51MG'
+#product_url='https://www.amazon.com/CA4309-Extra-Flexible-Rectangular-Filter/dp/B0009H51MG'
 
-year=[2003,2023]
-product_url='https://www.amazon.com/EPAuto-Replacement-2008-2016-2005-2016-2015-2016/dp/B01AXAQ4OC'
+#year=[2003,2023]
+#product_url='https://www.amazon.com/EPAuto-Replacement-2008-2016-2005-2016-2015-2016/dp/B01AXAQ4OC'
 #year=[2005,2023]
 #product_url='https://www.amazon.com/EPAuto-Replacement-Expedition-2007-2018-2009-2017/dp/B01M1F2IG3'
 
