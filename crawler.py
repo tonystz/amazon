@@ -66,7 +66,7 @@ class Crawler():
         ]
         if len(_submodelId) == 0 or _submodelId[0] ==0:
             return
-        ids, idskey, _ = self.browser.requestAttribute(attributes.getSelections(year,makeId,modelId,submodelId))
+        ids, idskey, _ = self.browser.requestAttribute(attributes.getSelections(year,makeId,modelId,submodelId),couldMoreThen=True)
         if idskey is None:
             ids = [(0,0,0,0)]
         elif idskey == 'engine':
@@ -79,6 +79,11 @@ class Crawler():
             https://www.amazon.com/SEALIGHT-360-degree-Illumination-Brightness-Installation/dp/B07Q24LVDM
             '''
             ids = [(0,0,bodyStyle[0],bodyStyle[1]) for bodyStyle in ids]
+        elif idskey == attributes.CouldMoreThen_BE:
+            '''2007/INFINITI/G35/Base/<bodyStyle>/<engine>
+            https://www.amazon.com/CA4309-Extra-Flexible-Rectangular-Filter/dp/B0009H51MG
+            '''
+            pass
         else:
             self.browser.logger.error(f'[TODO]unspported type: {idskey} --> {ids}')
             return

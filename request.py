@@ -117,7 +117,7 @@ class AmazonVehicleParts():
         )
         return self.__postRequest('select1',first_select_url,payload=payload)
 
-    def requestAttribute(self,selections=None):
+    def requestAttribute(self,selections=None,couldMoreThen=False):
         '''
         selection = [{"id": "year", "value": "2022"}]
         '''
@@ -135,7 +135,7 @@ class AmazonVehicleParts():
         
         self.logger.info(f'attrURL: sendselection: {json.dumps(payload["selections"])}')
         response =  self.__postRequest('attrURL',attrURL,payload=payload)
-        return attributes.parserActive(response.text)
+        return attributes.parserActive(response.text,couldMoreThen)
 
     def requestPartfinder(self, selections=None):
         findUrl=f'https://www.amazon.com/{self.dappath}getPartfinderView?ref_=pf_dsk_ftr&hitType=pageTouch&pageAssemblyType=main'

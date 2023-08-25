@@ -3,7 +3,8 @@ import json
 from bs4 import BeautifulSoup
 from logger import logger
 
-def parserActive(body):
+CouldMoreThen_BE='bodyStyle-engine'
+def parserActive(body,couldMoreThen=False):
     '''
     first, next,next
     '''
@@ -25,6 +26,15 @@ def parserActive(body):
         elif len(_idskey) == 0:
             pass
         else:
+            if couldMoreThen:
+                if '-'.join(_idskey) == CouldMoreThen_BE:
+                    logger.info(f'find bodyStyle, and engine {_idskey} and r=:{r}')
+                    bodyStyle=[i for i in r[0] if len(i[0]) != 0 ]
+                    engine=[i for i in r[1] if len(i[0]) != 0 ]
+                    for e in engine:
+                        for b in bodyStyle:
+                            ids.append((e[0],e[1],b[0],b[1]))
+                return ids,CouldMoreThen_BE,selections
             logger.error(f'more than one idskey {_idskey}')
     logger.debug(f'attribute: {r}')
 
