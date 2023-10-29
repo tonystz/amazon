@@ -40,12 +40,14 @@ class DataBase():
                 "enginetxt" TEXT,
                 "bodyStyle" integer,
                 "bodyStyletxt" TEXT,
+                "driveType" TEXT,
+                "driveTypetxt" TEXT,
                 "note" TEXT,
                 "url" text
                 )''')
         else:
             cur.executescript('''
-            ALTER TABLE parts ADD COLUMN bodyStyletxt TEXT;
+            ALTER TABLE parts ADD COLUMN driveType TEXT;
             ''')
         self.con.commit()
         cur.close()
@@ -118,7 +120,7 @@ class DataBase():
         return self.fetch('select submodelId from parts where asin=? and year=? and makeId=? and modelId=?',(asin,year,makeId,modelId))
     
     def getMoreAttrViaSubmodelId(self,asin,year,makeId,modelId,submodelId):
-        return self.fetch('select submodelId,engine,bodyStyle from parts where asin=? and year=? and makeId=? and modelId=? and submodelId=?',(asin,year,makeId,modelId,submodelId))
+        return self.fetch('select submodelId,engine,bodyStyle,driveType from parts where asin=? and year=? and makeId=? and modelId=? and submodelId=?',(asin,year,makeId,modelId,submodelId))
     
     def insertUpdateModelId(self,asin,year,makeId,ids):
         rs = self.fetch('select rowid,* from parts where asin=? and year=? and makeId=? and modelId is NULL',(asin,year,makeId))
@@ -136,7 +138,7 @@ class DataBase():
         rs = self.fetch('select rowid,* from parts where asin=? and year=? and makeId=? and modelId=? and submodelId =?',(asin,year,makeId,modelId,submodelId))
         assert len(rs) == 1
         
-        self.executeInsertUpdate(rs[0],['engine','enginetxt','bodyStyle','bodyStyletxt'],ids)
+        self.executeInsertUpdate(rs[0],['engine','enginetxt','bodyStyle','bodyStyletxt','driveType','driveTypetxt'],ids)
     
     def checkFit(self,asin,year,makeId,modelId,submodelId):
         sql='select fit from parts where asin=? and year=? and makeId=? and modelId=? and submodelId=?'
