@@ -1,7 +1,7 @@
 # year=[2009]
 # from 2016 to 2022
 year=[1990,2023]
-product_url='https://www.amazon.com/KSP-4x156mm-Spacers-Inches-Polaris/dp/B07W92HYFL'
+#product_url='https://www.amazon.com/KSP-4x156mm-Spacers-Inches-Polaris/dp/B07W92HYFL'
 #product_url='https://www.amazon.com/OrionMotorTech-Spacers-Compatible-Polaris-Performance/dp/B071NWPDLQ'
 
 #year=[1980,2023]
@@ -10,7 +10,7 @@ product_url='https://www.amazon.com/KSP-4x156mm-Spacers-Inches-Polaris/dp/B07W92
 
 #year=[1991,2023]
 #product_url='https://www.amazon.com/KSP-Spacers-Silverado-Avalanche-Suburban/dp/B083FD7NMY'
-#product_url='https://www.amazon.com/Richeer-Hubcentric-ChevyTahoe-Avalanche-6x139-7mm/dp/B07XF3J1QZ'
+product_url='https://www.amazon.com/Richeer-Hubcentric-ChevyTahoe-Avalanche-6x139-7mm/dp/B07XF3J1QZ'
 
 
 
