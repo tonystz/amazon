@@ -1,6 +1,47 @@
 # year=[2009]
 # from 2016 to 2022
-year=[1990,2023]
+year=[1993,2023]
+
+product_url='https://www.amazon.com/CA8039-Eldorado-Lincoln-Winnebago-Vehicles/dp/B0009H51WQ'
+product_url='https://www.amazon.com/ECOGARD-XA4878-Expedition-Navigator-Econoline/dp/B007D4UHAY'
+
+year=[2000,2023]
+product_url='https://www.amazon.com/FRAM-CA9360-1-Filter-TRV146623/dp/B000A0CAJE'
+product_url='https://www.amazon.com/epauto-ca9360-toyota-engine-filter/dp/b014tzi59y'
+product_url='https://www.amazon.com/EPAuto-Pontiac-2003-2008-2013-2016-2005-2010/dp/B017OIUN7U'
+product_url='https://www.amazon.com/CA9482-Extra-Guard-Flexible-Filter/dp/B000A0CANA'
+
+year=[2005,2023]
+product_url='https://www.amazon.com/CA10677-Extra-Guard-Panel-Filter/dp/B007RW2XYA'
+product_url='https://www.amazon.com/EPAuto-Replacement-2013-2018-2012-2017-2007-2017/dp/B07H43FJ5Y'
+
+
+year=[2015,2023]
+product_url='https://www.amazon.com/EPAuto-XA10586-Replacement-Toyota-2018-2022/dp/B0C6XH1HNS'
+product_url='https://www.amazon.com/Flexible-Replacement-Protection-Performance-CA12289/dp/B09F6YNL4K'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #product_url='https://www.amazon.com/KSP-4x156mm-Spacers-Inches-Polaris/dp/B07W92HYFL'
 #product_url='https://www.amazon.com/OrionMotorTech-Spacers-Compatible-Polaris-Performance/dp/B071NWPDLQ'
 
@@ -10,32 +51,7 @@ year=[1990,2023]
 
 #year=[1991,2023]
 #product_url='https://www.amazon.com/KSP-Spacers-Silverado-Avalanche-Suburban/dp/B083FD7NMY'
-product_url='https://www.amazon.com/Richeer-Hubcentric-ChevyTahoe-Avalanche-6x139-7mm/dp/B07XF3J1QZ'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#product_url='https://www.amazon.com/Richeer-Hubcentric-ChevyTahoe-Avalanche-6x139-7mm/dp/B07XF3J1QZ'
 
 
 
