@@ -32,7 +32,7 @@ class AmazonVehicleParts():
         if status_code not in self.http_code:
             self.http_code[status_code] = 0
         self.http_code[status_code] +=1
-        for status_code in [403]:
+        for status_code in [403,404,410]:
             assert self.http_code.get(status_code,0) < 4
 
     def sleep(self,max=1):
