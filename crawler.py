@@ -17,7 +17,7 @@ class Crawler():
                 attributes.getSelections(
                 year=i['year'],makeId=i['makeId'],
                 modelId=i['modelId'],submodelId=i['submodelId'],
-                engine=i['engine'],bodyStyle=i['bodyStyle'],driveType=i['driveType']
+                engine=i['engine'],bodyStyle=i['bodyStyle'],driveType=i['driveType'],transmission=i['transmission']
             ))
         self.db.updateFit(fit,note,i['rowid'])
     
@@ -64,23 +64,23 @@ class Crawler():
         _submodelId=[ 
             i['submodelId']
             for i in self.db.getMoreAttrViaSubmodelId(self.browser.asin,year,makeId,modelId,submodelId)
-            if i['engine'] is None or i['bodyStyle'] is None or i['driveType'] is None
+            if i['engine'] is None or i['bodyStyle'] is None or i['driveType'] is None or i['transmission'] is None
         ]
         if len(_submodelId) == 0 or _submodelId[0] ==0:
             return
         ids, idskey, _ = self.browser.requestAttribute(attributes.getSelections(year,makeId,modelId,submodelId),couldMoreThen=True)
         if idskey is None:
-            ids = [(0,0,0,0,0,0)]
+            ids = [(0,0,0,0,0,0,0,0)]
         elif idskey == 'engine':
             '''2016/Land Rover/Range Rover/Base/3.0L V6 Diesel
             https://www.amazon.com/Puroma-Filter-Activated-Replacement-CF10285/dp/B07VHMX2NT
             '''
-            ids = [(engine[0],engine[1],0,0,0,0) for engine in ids]
+            ids = [(engine[0],engine[1],0,0,0,0,0,0) for engine in ids]
         elif idskey == 'bodyStyle':
             '''2009/Honda/Accord/EX/4 Door Sedan
             https://www.amazon.com/SEALIGHT-360-degree-Illumination-Brightness-Installation/dp/B07Q24LVDM
             '''
-            ids = [(0,0,bodyStyle[0],bodyStyle[1],0,0) for bodyStyle in ids]
+            ids = [(0,0,bodyStyle[0],bodyStyle[1],0,0,0) for bodyStyle in ids]
         elif idskey == attributes.CouldMoreThen_BE:
             '''2007/INFINITI/G35/Base/<bodyStyle>/<engine>
             https://www.amazon.com/CA4309-Extra-Flexible-Rectangular-Filter/dp/B0009H51MG
@@ -91,7 +91,9 @@ class Crawler():
             https://www.amazon.com/Richeer-Hubcentric-ChevyTahoe-Avalanche-6x139-7mm/dp/B07XF3J1QZ
             year=1995,makeId=47,modelId=499,submodelId=96
             '''
-            ids = [(0,0,0,0,driveType[0],driveType[1]) for driveType in ids]
+            ids = [(0,0,0,0,driveType[0],driveType[1],0,0) for driveType in ids]
+        elif idskey == 'transmission':
+            ids = [(0,0,0,0,0,0,transmission[0],transmission[1]) for transmission in ids]
         else:
             self.browser.logger.error(f'[TODO]unspported type: {idskey} --> {ids}')
             return

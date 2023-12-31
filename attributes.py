@@ -46,7 +46,7 @@ def parserActive(body,couldMoreThen=False):
     
     return ids, idskey, selections
 
-def getSelections(year=None,makeId=None,modelId=None,submodelId=None,engine=None,bodyStyle=None,driveType=None):
+def getSelections(year=None,makeId=None,modelId=None,submodelId=None,engine=None,bodyStyle=None,driveType=None,transmission=None):
     s = [
         {"id":"version","value":"1"},
         {"id":"flow","value":"vehicle-by-attributes"},
@@ -66,4 +66,6 @@ def getSelections(year=None,makeId=None,modelId=None,submodelId=None,engine=None
                         s.append({"id": "bodyStyle", "value": bodyStyle})
                     if driveType and driveType !=0 :
                         s.append({"id": "driveType", "value": driveType})
+                    if transmission and transmission !=0:
+                        s.append({"id": "transmission", "value": transmission})
     return s

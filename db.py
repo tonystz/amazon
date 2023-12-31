@@ -40,8 +40,10 @@ class DataBase():
                 "enginetxt" TEXT,
                 "bodyStyle" integer,
                 "bodyStyletxt" TEXT,
-                "driveType" TEXT,
+                "driveType" integer,
                 "driveTypetxt" TEXT,
+                "transmission" integer,
+                "transmissiontxt" TEXT,
                 "note" TEXT,
                 "url" text
                 )''')
@@ -107,6 +109,11 @@ class DataBase():
         deleteSql='delete from parts where rowid=?',
         deleteParameters=(rs['rowid'],))
     
+    def repeatDelete(self,rowid):
+        return self.execute("delete from parts where rowid=?",(rowid,))
+    def repeatUpdate(self):
+        return self.fetch("select rowid,year,makeId,modelId,submodelId from parts where fit = 'unknown';")
+    
     def getMakeIdMaxYear(self,asin):
         return self.fetch('select max(year) as maxyear from parts where asin=?',(asin,))
     
@@ -120,7 +127,7 @@ class DataBase():
         return self.fetch('select submodelId from parts where asin=? and year=? and makeId=? and modelId=?',(asin,year,makeId,modelId))
     
     def getMoreAttrViaSubmodelId(self,asin,year,makeId,modelId,submodelId):
-        return self.fetch('select submodelId,engine,bodyStyle,driveType from parts where asin=? and year=? and makeId=? and modelId=? and submodelId=?',(asin,year,makeId,modelId,submodelId))
+        return self.fetch('select submodelId,engine,bodyStyle,driveType,transmission from parts where asin=? and year=? and makeId=? and modelId=? and submodelId=?',(asin,year,makeId,modelId,submodelId))
     
     def insertUpdateModelId(self,asin,year,makeId,ids):
         rs = self.fetch('select rowid,* from parts where asin=? and year=? and makeId=? and modelId is NULL',(asin,year,makeId))
@@ -138,7 +145,7 @@ class DataBase():
         rs = self.fetch('select rowid,* from parts where asin=? and year=? and makeId=? and modelId=? and submodelId =?',(asin,year,makeId,modelId,submodelId))
         assert len(rs) == 1
         
-        self.executeInsertUpdate(rs[0],['engine','enginetxt','bodyStyle','bodyStyletxt','driveType','driveTypetxt'],ids)
+        self.executeInsertUpdate(rs[0],['engine','enginetxt','bodyStyle','bodyStyletxt','driveType','driveTypetxt','transmission','transmissiontxt'],ids)
     
     def checkFit(self,asin,year,makeId,modelId,submodelId):
         sql='select fit from parts where asin=? and year=? and makeId=? and modelId=? and submodelId=?'
